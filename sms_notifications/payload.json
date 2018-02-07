@@ -1,0 +1,7 @@
+{
+  "sid": "YOUR_TWILIO_SID",
+  "token": "YOUR_TWILIO_TOKEN",
+  "from": "TWILIO_PHONE_NUMBER",
+  "to": "NUMBER_TO_SEND_TO",
+  "body": "Hello from IronWorker!"
+}
