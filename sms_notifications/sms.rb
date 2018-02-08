@@ -2,9 +2,9 @@ require_relative 'bundle/bundler/setup'
 require 'twilio-ruby'
 require 'iron_worker'
 
-# read all required parameters from payload
-sid = IronWorker.payload["sid"]         # twilio account sid
-token = IronWorker.payload["token"]     # twilio auth token
+sid = ENV['TWILIO_SID']                 # twilio account sid
+token = ENV['TWILIO_TOKEN']             # twilio auth token
+
 from = IronWorker.payload["from"]       # your twilio number
 to = IronWorker.payload["to"]           # your phone number
 body = IronWorker.payload["body"]

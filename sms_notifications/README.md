@@ -14,11 +14,10 @@ We'll cover both of these. But first, our sms worker, take a look at `sms.rb`. T
 
 ## Getting started
 
-- You must have an [Iron.io](http://www.iron.io) account
-- Have your iron credentials setup. See: http://dev.iron.io/worker/reference/configuration/
-- Install the IronWorker command line (CLI) tool: http://dev.iron.io/worker/cli/
-- Fill the `payload.json` file with your Twilio information. In the 'to' field,
-enter your own mobile phone number so you can receive the text.
+- Be sure you've followed the base [getting started instructions on the top level README](https://github.com/iron-io/iron-worker-examples)
+- You must have a [Twilio](https://www.twilio.com/) account
+- Fill the `payload.json` file with the actual information. In the 'to' field,
+enter your own mobile phone number so you can receive the text. Such parameters as twilio sid and twilio auth token will be passed in env variables for security. Environment variables will be set in upload command.
 
 ## Sending a Text
 
@@ -26,10 +25,10 @@ enter your own mobile phone number so you can receive the text.
 ```sh
 docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
 ```
-- Package and upload the worker if it hasn't been uploaded yet, from command line:
+- Package and upload the worker if it hasn't been uploaded yet, from command line. Don't forget to replace `YOUR_TWILIO_SID` and `YOUR_TWILIO_TOKEN` with real values:
 ```sh
 zip -r twilio.zip .
-iron worker upload --name twilio --zip twilio.zip iron/ruby ruby sms.rb
+iron worker upload -e TWILIO_SID=YOUR_TWILIO_SID -e TWILIO_TOKEN=YOUR_TWILIO_TOKEN --name twilio --zip twilio.zip iron/ruby ruby sms.rb
 ```
 - Queue up an sms task:
 ```sh
