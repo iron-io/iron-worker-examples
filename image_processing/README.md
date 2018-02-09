@@ -1,7 +1,8 @@
 # Quick & Simple Example for a image resizing
 
+##### You can upload processed image into S3 or dropbox. To use dropbox set `DROPBOX_TOKEN` env var, to use S3 set aws access key and secret key
 
-1. Register your image with Iron: `iron register -e "AWS_ACCESS_KEY_ID=???" -e "AWS_SECRET_ACCESS_KEY=???" -e "AWS_DEFAULT_REGION=us-east-1" iron/examples:image-resizer`
+1. Register your image with Iron: `iron register -e "DROPBOX_TOKEN=???"  -e "AWS_ACCESS_KEY_ID=???" -e "AWS_SECRET_ACCESS_KEY=???" -e "AWS_DEFAULT_REGION=us-east-1" iron/examples:image-resizer`
 
 2. Change values in `payload.json` file
 
