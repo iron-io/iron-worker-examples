@@ -21,7 +21,7 @@ docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --stan
 zip -r email_worker.zip .
 iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker --zip email_worker.zip iron/ruby ruby send_email.rb
 ```
-- Queue up an sms task:
+- Queue up an email task:
 ```sh
 iron worker queue --payload-file payload.json --wait email_worker
 ```
