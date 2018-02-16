@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "node-horseman": "^3.3.0",
+    "phantomjs": "^2.1.7",
+    "iron_worker": "^0.1.6"
+  }
+}
