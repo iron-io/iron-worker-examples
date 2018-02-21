@@ -1,0 +1,11 @@
+{
+  "to": "/topics/news",
+  "notification": {
+    "title": "Title of your push notification",
+    "body": "Body of your push notification"
+  },
+  "data": {
+    "my_key": "my value",
+    "my_another_key": "my another value"
+  }
+}
