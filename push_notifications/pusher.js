@@ -22,6 +22,7 @@ console.log(`--> Pushing to: ${to}, pushing what: ${JSON.stringify(message)}`);
 fcm.send(message, function(err, response){
     if (err) {
         console.log(`--> Something has gone wrong! ${err}`);
+        process.exit(1);
     } else {
         console.log("--> Successfully sent with response: ", response);
     }
