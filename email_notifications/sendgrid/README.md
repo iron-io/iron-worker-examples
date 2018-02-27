@@ -12,6 +12,8 @@ This communication never really needs to block requests, however. Notifications 
 
 ## Sending an Email
 
+### Ruby way
+
 - Install the dependencies for your code:
 ```sh
 docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
@@ -21,6 +23,30 @@ docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --stan
 zip -r email_worker.zip .
 iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker --zip email_worker.zip iron/ruby ruby send_email.rb
 ```
+
+### Nodejs way
+
+#### Use existing iron docker images (for quick example)
+
+- Register your master worker with Iron:
+```sh
+iron register -e "SENDGRID_API_KEY=???" --name "email_worker" iron/examples:email_sendgrid_node
+```
+
+#### Or get node_modules, zip package and upload worker
+
+- Install the dependencies for your code:
+```sh
+docker run --rm -v "$PWD":/worker -w /worker iron/node:dev npm install
+```
+- Package and upload the worker from command line. Don't forget to replace `YOUR_SENDGRID_API_KEY` with real value:
+```sh
+zip -r email_worker.zip .
+iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker --zip email_worker.zip node:alpine node send_email.js
+```
+
+
+### Launch it!
 - Queue up an email task:
 ```sh
 iron worker queue --payload-file payload.json --wait email_worker
