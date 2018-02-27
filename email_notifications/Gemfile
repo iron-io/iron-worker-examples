@@ -1,4 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'sendgrid-ruby'
-gem 'iron_worker', '>= 3.0.0'

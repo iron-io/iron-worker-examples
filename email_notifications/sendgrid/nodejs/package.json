@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
+    "iron_worker": "^0.1.6"
+  }
+}
