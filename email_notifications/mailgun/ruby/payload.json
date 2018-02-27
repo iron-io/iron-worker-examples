@@ -2,6 +2,6 @@
   "from": "you@example.com",
   "to": "you@example.com",
   "subject": "It works!",
-  "body": "",
-  "html": "<strong>Hello from IronWorker</strong>"
+  "body": "Hello from IronWorker",
+  "domain": "mydomain.com"
 }
