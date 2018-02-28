@@ -4,11 +4,11 @@ const ironWorker  = require('iron_worker');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const msg = {
-    to: ironWorker.params().to,
-    from: ironWorker.params().from,
+    to:      ironWorker.params().to,
+    from:    ironWorker.params().from,
     subject: ironWorker.params().subject,
-    text: ironWorker.params().content,
-    html: ironWorker.params().html,
+    text:    ironWorker.params().body,
+    html:    ironWorker.params().html,
 };
 
 console.log(`--> Sending email obj: ${JSON.stringify(msg)}`);

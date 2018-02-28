@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mailgun-js": "^0.16.0",
+    "iron_worker": "^0.1.6"
+  }
+}

@@ -1,8 +1,7 @@
 {
-
   "from": "you@example.com",
   "to": "you@example.com",
   "subject": "It works!",
-  "body": "",
-  "html": "<strong>Hello from IronWorker</strong>"
+  "html": "<strong>Hello from IronWorker</strong>",
+  "domain": "mydomain.com"
 }

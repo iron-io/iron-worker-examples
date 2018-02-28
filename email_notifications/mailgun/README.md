@@ -1,4 +1,4 @@
-# Email worker example (sending emails via [sendgrid](https://sendgrid.com/))
+# Email worker example (sending emails via [mailgun](https://www.mailgun.com/))
 
 Sending notifications is key to delivering great service. A growing user base means distributing the effort and shrinking the time it takes to get emails and messages to your users.
 
@@ -7,7 +7,7 @@ This communication never really needs to block requests, however. Notifications 
 ## Getting started
 
 - Be sure you've followed the base [getting started instructions on the top level README](https://github.com/iron-io/iron-worker-examples)
-- You must have a [Sendgrid](https://sendgrid.com/) account
+- You must have a [mailgun](https://www.mailgun.com/) account
 - Fill the `payload.json` file with the actual information.
 
 ## Sending an Email
@@ -18,10 +18,10 @@ This communication never really needs to block requests, however. Notifications 
 ```sh
 cd ruby && docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
 ```
-- Package and upload the worker from command line. Don't forget to replace `YOUR_SENDGRID_API_KEY` with real value:
+- Package and upload the worker from command line. Don't forget to replace `YOUR_MAILGUN_API_KEY` with real value:
 ```sh
 zip -r email_worker.zip .
-iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker --zip email_worker.zip iron/ruby ruby send_email.rb
+iron worker upload -e MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY --name email_worker --zip email_worker.zip iron/ruby ruby send_email.rb
 ```
 
 ### Nodejs way
@@ -30,7 +30,7 @@ iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker
 
 - Register your master worker with Iron:
 ```sh
-iron register -e "SENDGRID_API_KEY=???" --name "email_worker" iron/examples:email_sendgrid_node
+iron register -e "MAILGUN_API_KEY=???" --name "email_worker" iron/examples:email_mailgun_node
 ```
 
 #### Or get node_modules, zip package and upload worker
@@ -39,10 +39,10 @@ iron register -e "SENDGRID_API_KEY=???" --name "email_worker" iron/examples:emai
 ```sh
 cd node && docker run --rm -v "$PWD":/worker -w /worker iron/node:dev npm install
 ```
-- Package and upload the worker from command line. Don't forget to replace `YOUR_SENDGRID_API_KEY` with real value:
+- Package and upload the worker from command line. Don't forget to replace `YOUR_MAILGUN_API_KEY` with real value:
 ```sh
 zip -r email_worker.zip .
-iron worker upload -e SENDGRID_API_KEY=YOUR_SENDGRID_API_KEY --name email_worker --zip email_worker.zip node:alpine node send_email.js
+iron worker upload -e MAILGUN_API_KEY=YOUR_MAILGUN_API_KEY --name email_worker --zip email_worker.zip node:alpine node send_email.js
 ```
 
 
