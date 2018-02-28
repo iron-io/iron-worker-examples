@@ -1,0 +1,7 @@
+{
+  "from": "dmitriy@iron.io",
+  "to": "kononov.dmitriy@iron.io",
+  "subject": "It works!",
+  "body": "",
+  "html": "<strong>Hello from IronWorker</strong>"
+}
