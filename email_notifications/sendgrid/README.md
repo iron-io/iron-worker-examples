@@ -14,6 +14,17 @@ This communication never really needs to block requests, however. Notifications 
 
 ### Ruby way
 
+#### Use existing iron docker image (for quick example)
+
+- Register your master worker with Iron:
+```sh
+iron register -e "SENDGRID_API_KEY=???" --name "email_worker" iron/examples:email_sendgrid_ruby
+```
+
+To build your own image with your code, you have to install the dependencies for your code (see step below), build docker image and push to your docker hub account
+
+#### Or get gems, zip package and upload worker
+
 - Install the dependencies for your code:
 ```sh
 cd ruby && docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
