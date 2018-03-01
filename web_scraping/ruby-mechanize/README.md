@@ -14,6 +14,17 @@ In this example we will show you how to scrape top torrent records 1337x.to web 
 
 ## Quick start
 
+#### Use existing iron docker image (for quick example)
+
+- Register your master worker with Iron:
+```sh
+iron register --name "1337x.to" iron/examples:web_scraping_mechanize
+```
+
+To build your own image with your code, you have to install the dependencies for your code (see step below), build docker image and push to your docker hub account
+
+#### Or get gems, zip package and upload worker
+
 - Install the dependencies for your code:
 ```sh
 docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
@@ -21,10 +32,10 @@ docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --stan
 - Package and upload the worker from command line:
 ```sh
 zip -r parser.zip .
-iron worker upload --name 1337 --zip parser.zip iron/ruby:2.4.3 ruby parser.rb
+iron worker upload --name 1337x.to --zip parser.zip iron/ruby:2.4.3 ruby parser.rb
 ```
 - Queue up an email task:
 ```sh
-iron worker queue --wait 1337
+iron worker queue --wait 1337x.to
 ```
 - Check logs for scraped data in json type
