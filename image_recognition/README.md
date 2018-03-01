@@ -10,7 +10,7 @@ This example shows how to recognize image with tensorflow.
 
 - Be sure you've followed the base [getting started instructions on the top level README](https://github.com/iron-io/iron-worker-examples)
 
-## Sending an Email
+## Image recognition
 
 - Package and upload the worker from command line.
 ```bash
