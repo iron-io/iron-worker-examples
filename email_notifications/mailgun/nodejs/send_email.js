@@ -10,10 +10,9 @@ const data = {
     html:    ironWorker.params().html,
 };
 
-console.log(`--> Sending email obj: ${JSON.stringify(data)}`);
+console.log(`--> Sending email: ${JSON.stringify(data)}`);
 
 mailgun.messages().send(data, function (error, body) {
-    console.log(error);
     if (error) {
         console.error(error);
         process.exit(1);

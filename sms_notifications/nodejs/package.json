@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "twilio": "^3.12.0",
+    "iron_worker": "^0.1.6"
+  }
+}
