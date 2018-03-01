@@ -10,6 +10,17 @@ This shows how to kick off a worker from a webhook. This example uses Github's S
 
 ## Downloading a code from github and running in worker
 
+#### Use existing iron docker image (for quick example)
+
+- Register your master worker with Iron:
+```sh
+iron register -config-file config.json --name github_webhook iron/examples:webhook_github_ruby
+```
+
+To build your own image with your code, you have to install the dependencies for your code (see step below), build docker image and push to your docker hub account
+
+#### Or get gems, zip package and upload worker
+
 - Install the dependencies for your code:
 ```sh
 docker run --rm -v "$PWD":/worker -w /worker iron/ruby:dev bundle install --standalone --clean
