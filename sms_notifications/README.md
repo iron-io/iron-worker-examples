@@ -65,6 +65,29 @@ zip -r twilio.zip .
 iron worker upload -e TWILIO_SID=YOUR_TWILIO_SID -e TWILIO_TOKEN=YOUR_TWILIO_TOKEN --name twilio --zip twilio.zip node:alpine node sms.js
 ```
 
+### PHP way
+
+#### Use existing iron docker image (for quick example)
+
+- Register your master worker with Iron:
+```sh
+iron register -e "TWILIO_SID=YOUR_TWILIO_SID" -e "TWILIO_TOKEN=YOUR_TWILIO_TOKEN" --name twilio iron/examples:sms_twilio_php
+```
+
+To build your own image with your code, you have to install the dependencies for your code (see step below), build docker image and push to your docker hub account
+
+#### Or get dependencies, zip package and upload worker
+
+- Install the dependencies for your code:
+```sh
+docker run --rm -v "$PWD":/worker -w /worker iron/php:dev composer install
+```
+- Package and upload the worker if it hasn't been uploaded yet, from command line. Don't forget to replace `YOUR_TWILIO_SID` and `YOUR_TWILIO_TOKEN` with real values:
+```sh
+zip -r twilio.zip .
+iron worker upload -e TWILIO_SID=YOUR_TWILIO_SID -e TWILIO_TOKEN=YOUR_TWILIO_TOKEN --name twilio --zip twilio.zip iron/php php sms.php
+```
+
 ### Launch it!
 
 - Queue up an sms task:
