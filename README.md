@@ -25,9 +25,3 @@ iron --version
 ```sh
 git clone https://github.com/iron-io/iron-worker-examples.git
 ```
-
-And cd into the directory:
-    
-```sh
-cd iron-worker-examples
-```
